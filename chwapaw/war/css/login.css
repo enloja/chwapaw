@@ -1,0 +1,36 @@
+
+.login{
+	margin: 15% auto 0;
+	position: relative;
+	background-color:#EEE;
+	padding: 20px;
+	border-radius: 10px;
+	border: 1px solid #d31515;
+	width:360px;
+	height:310px;
+	
+}
+.login .logo{
+	position: absolute;
+	font-size: 4em;
+	top: -80px;
+	left: -5px;
+	color: #06066a;
+	font-weight: bold;
+}
+.login .user-icon-container{
+	width: 150px;
+	height: 150px;
+	background-color: #d31515;
+	overflow: hidden;
+	border-radius: 100%;
+	margin: -100px auto 0 auto;
+	text-align: center;
+}
+.login .user-icon-container > i{ color: #fff; }
+.login table{
+margin-left:15px;
+}
+.icon128{
+margin-top:10px;
+}

@@ -1,0 +1,270 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+ /* background: linear-gradient(#c4c4c4, #c4c4c4);*/
+ 
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+  background: linear-gradient(#d31515,#d31515);
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    /*background-color: #f5f5f5;*/
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 1px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  height:38px;  
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background: linear-gradient(#d31515,#d31515);
+  border-radius: 0 10px 10px 0;
+  margin : 0 2px 0 0;
+
+}
+.nav-sidebar a:hover{
+background: linear-gradient(#e2dedf,white);
+}
+.nav-sidebar li .name img{
+	display : none;
+}
+.name{
+cursor:pointer;
+}
+.nav-sidebar li .name:hover img{
+	display : inline;
+	
+}
+
+.nav-sidebar li .pic img{
+	display : none;
+}
+li .pic:hover img{
+	display : inline;
+}
+
+.badge{
+display:block;
+float:right;
+background-color:#d31515;
+}
+.profile{
+position: relative;
+width: 150px;
+height: 150px;
+margin-bottom: 5px;
+ background: linear-gradient(#e2dedf,#e2dedf);
+}
+.icon{
+margin-right:15px;
+width:25px;
+}
+
+.logo{
+width: 100px;
+height:60px;
+margin-left:50px;
+cursor:pointer;
+}
+
+.selected{
+background: linear-gradient(white,#e2dedf);
+}
+/*
+ * Main content
+ */
+.box{
+width:20%;
+height:100px;
+border:1px solid #d31515;
+-webkit-border-radius: 5px;
+-moz-border-radius:5px;
+background: linear-gradient(white,#e2dedf);
+border-radius:5px;
+margin:2.5%;
+cursor:pointer;
+}
+.box a{
+text-overflow : ellipsis;
+}
+.box:hover{
+background:-webkit-linear-gradient(#e2dedf, #e2dedf);
+background:-o-linear-gradient(#e2dedf, #e2dedf);
+background:-moz-linear-gradient(#e2dedf, #e2dedf);
+background: linear-gradient(#e2dedf, #e2dedf);
+}
+.box img{
+float:left;
+width:20%;
+margin-top:20px;
+}
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+table th{
+color: white;
+}
+ .table tbody tr:hover{
+background: linear-gradient(white, #e2dedf);
+cursor:pointer;
+}
+.btn-danger {
+background:white;
+border: solid 1px ;
+color:#d31515;
+}
+.btn-danger:active{
+background:white;
+}
+.btn-danger:hover{
+background:white;
+border: solid 1px ;
+color:#d31515;
+}
+.create{
+float:right;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+input#submit{
+border-radius:5px;
+border:none;
+padding:10px 55px;
+margin-top:-13px;
+color:#FFF;
+cursor: pointer;
+width: 100%;
+font-weight: bold;
+background: #c92f2b;
+}
+input#j_password{
+width:250px;
+
+}
+input#j_username{
+width:250px;
+
+}
+.profileImg{
+	position : relative;
+	margin-left:40px;
+
+}
+.profileImg p{
+	max-height : 150px;
+}
+.profileImg .upload-btn{
+	position : absolute;
+	top : 0;
+	bottom : 0;
+	left : 0;
+	right: 0;
+	z-index : 2;
+	
+}
+.profileImg .upload-btn input{
+	width : 120px;
+	height : 120px;
+	opacity : 0;
+	cursor : pointer;
+}
+.update{
+position: absolute;
+left : 40%;
+top : 55%; 
+margin: -30px 0 0 -30px;
+width: 60px;
+height: 60px;
+
+}
+.form-horizontal{
+margin: 15% auto 0;
+}
+
+.error {
+	color:#FF0000;
+	font-size:12px;
+	font-style: italic;
+	background-color:#FFFF00;
+	padding: 3px;
+	hyphens: auto;
+	word-wrap: break-word;
+	white-space: normal;
+}

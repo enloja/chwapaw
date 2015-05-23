@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//war/WEB-INF/classes/locale/message.properties=UTF-8
+encoding//war/WEB-INF/classes/locale/message_fr.properties=UTF-8
+encoding//war/WEB-INF/classes/locale/message_kr.properties=UTF-8
+encoding//war/WEB-INF/jsp/createUser.jsp=UTF-8

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<project name="chwapaw" default="deploywar" basedir=".">
+
+	<property file="build.properties"/>
+	
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+		<fileset dir="${appserver.lib}">
+			<include name="servlet*.jar"/>
+		</fileset>
+		<pathelement path="${build.dir}"/>
+	</path>
+	
+	<target name="build" description="Compile main source tree java files">
+        <mkdir dir="${build.dir}"/>
+        <javac destdir="${build.dir}" source="1.7" target="1.7" debug="true" deprecation="false" 
+        	   optimize="false" failonerror="true" includeantruntime="false">
+            <src path="${src.dir}"/>
+            <classpath refid="master-classpath"/>
+        </javac>
+    </target>
+    
+    <target name="deploywar" depends="build" description="Deploy application as a WAR file">
+        <war destfile="${name}.war" webxml="${webxml.file}/">
+            <fileset dir="${web.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </war>
+        <copy todir="${deploy.path}" preservelastmodified="true">
+            <fileset dir=".">
+                <include name="*.war"/>
+            </fileset>
+        </copy>
+    </target>
+
+</project>

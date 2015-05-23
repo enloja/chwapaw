@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   		http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/security 
+			http://www.springframework.org/schema/security/spring-security.xsd">
+			
+	<security:global-method-security jsr250-annotations="enabled" />
+	
+	<security:http auto-config="true" use-expressions="true"  >
+		<security:form-login login-page="/user/signin.cp" 
+			                 default-target-url="/user/signed.cp"
+			                 authentication-failure-url="/user/error-signin.cp" />
+		<security:logout logout-success-url="/user/signin.cp" />
+		
+		<security:session-management>
+			<security:concurrency-control max-sessions="1" expired-url="/user/signin.cp" />
+		</security:session-management>
+	</security:http>
+	
+	<security:authentication-manager>
+			<security:authentication-provider user-service-ref="authUserService" > 
+				<security:password-encoder ref="passwordEncoder">
+					<security:salt-source user-property="username"/>
+				</security:password-encoder>
+			</security:authentication-provider>
+	</security:authentication-manager>
+	
+	<bean  id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${database.driver}" />
+		<property name="url" value="${database.url}" />
+		<property name="username" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>			
+				<value>chwapaw.common.Person</value>
+				<value>chwapaw.common.Image</value>				
+				<value>chwapaw.security.Group</value>
+				<value>chwapaw.security.Menu</value>
+				<value>chwapaw.security.User</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop> 
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>		
+
+</beans>
